@@ -14,7 +14,6 @@ export class BaseApi {
       throw new Error("Pathname is missing");
     }
 
-    console.log("Bearer " + process.env.TMDB_API_KEY);
     const request = await fetch(
       this.baseUrl +
         pathname +

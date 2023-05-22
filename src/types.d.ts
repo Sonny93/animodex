@@ -1,4 +1,4 @@
-interface SearchResult {
+interface Movie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -15,9 +15,14 @@ interface SearchResult {
   vote_count: number;
 }
 
-interface ApiResult {
+interface MovieApiResult {
   page: number;
-  results: SearchResult[];
+  results: Movie[];
   total_pages: number;
   total_results: number;
+}
+
+interface Genre {
+  id: number;
+  name: string;
 }

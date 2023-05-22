@@ -6,7 +6,7 @@ export class SearchApi extends BaseApi {
     super(baseUrl);
   }
 
-  search = async (term: string): Promise<ApiResult> => {
+  search = async (term: string): Promise<MovieApiResult> => {
     if (!term) {
       throw new Error("Missing term");
     }
@@ -14,29 +14,15 @@ export class SearchApi extends BaseApi {
     return await this.request(`/search/movie?query=${term}`);
   };
 
-  discover = async (): Promise<ApiResult> =>
+  discover = async (): Promise<MovieApiResult> =>
     await this.request("/discover/movie");
 
-  getMovie = async (movieId: SearchResult["id"]): Promise<SearchResult> =>
+  getMovie = async (movieId: Movie["id"]): Promise<Movie> =>
     await this.request(`/movie/${movieId}`);
-}
 
-export async function makeRequest({
-  url = TMDB_BASE_URL,
-  path,
-  method = "GET",
-  query = "",
-}: {
-  url?: string;
-  path?: string;
-  method?: RequestInit["method"];
-  query?: string;
-}) {
-  return fetch(url + (path ? `/${path}` : "") + "?language=fr-FR", {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + process.env.TMDB_API_KEY,
-    },
-  }).then((req) => req.json());
+  getGenres = async (): Promise<{ genres: Genre[] }> =>
+    await this.request(`/genre/movie/list`);
+
+  getMoviesByGenre = async (id: Genre["id"]) =>
+    await this.request(`/discover/movie?with_genres=${id}`);
 }

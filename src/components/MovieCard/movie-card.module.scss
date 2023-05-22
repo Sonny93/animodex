@@ -1,0 +1,19 @@
+.movie-card {
+  transition: 0.15s;
+
+  &:hover {
+    z-index: 8;
+    transform: scale(1.1);
+  }
+
+  & .card-header {
+    position: relative;
+    height: 350px;
+    width: 280px;
+    margin-bottom: 1em;
+
+    & img {
+      border-radius: 0.25em;
+    }
+  }
+}
