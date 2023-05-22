@@ -1,9 +1,8 @@
 import { TMDB_IMAGE_BASE_URL } from "constants/api";
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = ({ film }: { film: SearchResult }) => {
+const MovieCard = ({ film }: { film: SearchResult }) => {
   return (
     <Link href={`/movies/${film.id}`} className="Card">
       <div className="card-header">
@@ -18,4 +17,4 @@ const Card = ({ film }: { film: SearchResult }) => {
   );
 };
 
-export default Card;
+export default MovieCard;
