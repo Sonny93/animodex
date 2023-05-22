@@ -13,7 +13,6 @@ import Head from "next/head";
 import styles from "styles/movie.module.scss";
 
 export default function MovieDetails({ film }: { film: Movie }) {
-  console.log(film);
   return (
     <PageContentLayout noMargin>
       <Head>

@@ -7,7 +7,6 @@ export default async function handler(
 ) {
   try {
     const searchTerm = req.query?.term;
-    console.log(req.query, searchTerm);
     if (!searchTerm) {
       return res.status(400).send({
         error: "SearchTerm (query) manquant",
