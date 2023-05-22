@@ -12,6 +12,7 @@ export default async function MovieDetails({
 }) {
   const searchApi = new SearchApi();
   const film = await searchApi.getMovie(Number(params.id));
+  
 
   return (
     <div className={"movie-details"}>

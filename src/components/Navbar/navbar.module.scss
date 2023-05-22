@@ -12,11 +12,20 @@
   align-items: center;
   justify-content: space-between;
 
-  .items {
+ & .items {
     display: flex;
     gap: 1em;
     align-items: center;
     justify-content: center;
+  }
+
+  & a {
+    display: flex;
+    align-items: center;
+  }
+
+  & span {
+    margin: 0.2em;
   }
 
   & button {
