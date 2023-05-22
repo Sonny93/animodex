@@ -1,0 +1,10 @@
+.navBar{
+    padding: 2em;
+    display: flex;
+    justify-content: space-evenly;
+
+    & button{
+        margin: 0.5em;
+        cursor: pointer;
+    }
+}
