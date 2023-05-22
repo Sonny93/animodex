@@ -20,9 +20,9 @@ export class SearchApi extends BaseApi {
   getMovie = async (movieId: Movie["id"]): Promise<Movie> =>
     await this.request(`/movie/${movieId}`);
 
-  getGenres = async (): Promise<{ genres: Genre[] }> =>
+  getGenres = async (): Promise<{ genres: GenreInfo[] }> =>
     await this.request(`/genre/movie/list`);
 
-  getMoviesByGenre = async (id: Genre["id"]) =>
+  getMoviesByGenre = async (id: GenreInfo["id"]): Promise<MovieApiResult> =>
     await this.request(`/discover/movie?with_genres=${id}`);
 }

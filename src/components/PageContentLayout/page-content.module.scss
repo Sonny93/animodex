@@ -1,7 +1,7 @@
 @import "styles/media-queries.scss";
 
 .page-content-layout {
-  width: $media-small-desktop;
+  width: $media-medium-desktop;
   margin-top: 9em;
   padding: 0 1.5em;
   display: flex;
@@ -10,7 +10,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: calc($media-tablet - 1em)) {
+@media screen and (max-width: calc($media-small-desktop - 1em)) {
   .page-content-layout {
     width: 100%;
     padding: 0 1em;

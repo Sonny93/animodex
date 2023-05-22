@@ -16,4 +16,11 @@
       border-radius: 0.25em;
     }
   }
+
+  & .card-body h4 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
 }

@@ -29,7 +29,7 @@ export default function Loader({
       <div className={styles["loader-logo"]}>
         <SpinnerIcon size={size} />
         <Image
-          src="/next.svg"
+          src="/vercel.svg"
           alt="Logo Spinner"
           height={logoSize}
           width={logoSize}

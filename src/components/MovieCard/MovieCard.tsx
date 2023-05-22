@@ -10,7 +10,7 @@ const MovieCard = ({ film }: { film: Movie }) => {
       <div className={styles["card-header"]}>
         <Image src={TMDB_IMAGE_BASE_URL + film.poster_path} alt="Card" fill />
       </div>
-      <div className="card-body">
+      <div className={styles["card-body"]}>
         <h4>{film.title}</h4>
       </div>
     </Link>

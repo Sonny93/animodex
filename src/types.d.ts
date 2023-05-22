@@ -22,7 +22,11 @@ interface MovieApiResult {
   total_results: number;
 }
 
-interface Genre {
+interface GenreInfo {
   id: number;
   name: string;
+}
+
+interface Genre extends GenreInfo {
+  movies: Movie[];
 }
