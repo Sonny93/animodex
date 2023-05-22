@@ -1,9 +1,11 @@
-import MovieCard from "components/MovieCard/MovieCard";
-import PageContentLayout from "components/PageContentLayout/PageContentLayout";
-import { SearchApi } from "lib/search";
+import Head from "next/head";
 
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import MovieCard from "components/MovieCard/MovieCard";
+import PageContentLayout from "components/PageContentLayout/PageContentLayout";
+import { SearchApi } from "lib/search";
 
 import styles from "styles/page.module.scss";
 import "swiper/css";
@@ -12,6 +14,9 @@ import "swiper/css/pagination";
 export default function Home({ genres }: { genres: Genre[] }) {
   return (
     <PageContentLayout>
+      <Head>
+        <title>Animodex</title>
+      </Head>
       <h1>Animodex</h1>
       <p>Vos séries préférées à portée de main.</p>
       <div className={styles["movies"]}>
