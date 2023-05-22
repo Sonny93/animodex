@@ -1,0 +1,10 @@
+.displayMoviesCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+
+  & h4 {
+    text-align: center;
+    font-size: medium;
+  }
+}
