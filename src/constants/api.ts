@@ -1,1 +1,1 @@
-export const MAL_BASE_URL = "https://api.myanimelist.net/v2";
+export const TMDB_BASE_URL = "https://api.themoviedb.org/3";

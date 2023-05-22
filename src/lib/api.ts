@@ -1,23 +1,34 @@
-import { MAL_BASE_URL } from "constants/api";
+export class BaseApi {
+  private baseUrl: string;
 
-export async function getAnimes() {
-  return makeRequest({ path: "/anime" });
-}
+  constructor(baseUrl: string) {
+    if (!baseUrl) {
+      throw new Error("Missing base URL to fetch");
+    }
 
-export async function makeRequest({
-  url = MAL_BASE_URL,
-  path,
-  method = "GET",
-}: {
-  url?: string;
-  path?: string;
-  method?: RequestInit["method"];
-}) {
-  return fetch(url + (path ? `/${path}` : ""), {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + process.env.MAL_CLIENT_SECRET,
-    },
-  }).then((req) => req.json());
+    this.baseUrl = baseUrl;
+  }
+
+  async request(pathname: string) {
+    if (!pathname) {
+      throw new Error("Pathname is missing");
+    }
+
+    console.log("Bearer " + process.env.TMDB_API_KEY);
+    const request = await fetch(
+      this.baseUrl +
+        pathname +
+        `${pathname.includes("?") ? "&" : "?"}language=fr-FR&api_key=${
+          process.env.TMDB_API_KEY
+        }`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + process.env.TMDB_API_KEY,
+        },
+      }
+    );
+    return await request.json();
+  }
 }
