@@ -11,7 +11,7 @@ export default async function Home() {
       <p>Bienvenue sur animodex</p>
       <ul className="movies">
         {animes.map((anime) => (
-          <li key={anime.id}>{anime.original_title}</li>
+          <li key={anime.id}>{anime.title}</li>
         ))}
       </ul>
     </main>

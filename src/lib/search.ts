@@ -16,6 +16,9 @@ export class SearchApi extends BaseApi {
 
   discover = async (): Promise<ApiResult> =>
     await this.request("/discover/movie");
+
+  getMovie = async (movieId: SearchResult["id"]): Promise<SearchResult> =>
+    await this.request(`/movie/${movieId}`);
 }
 
 export async function makeRequest({
