@@ -9,25 +9,25 @@ export class BaseApi {
     this.baseUrl = baseUrl;
   }
 
-  async request(pathname: string) {
+  async request(pathname: string, withToken = true) {
     if (!pathname) {
       throw new Error("Pathname is missing");
     }
 
-    const request = await fetch(
+    const finalUrl =
       this.baseUrl +
-        pathname +
-        `${pathname.includes("?") ? "&" : "?"}language=fr-FR&api_key=${
-          process.env.TMDB_API_KEY
-        }`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + process.env.TMDB_API_KEY,
-        },
-      }
-    );
+      pathname +
+      (withToken
+        ? `${pathname.includes("?") ? "&" : "?"}language=fr-FR&api_key=${
+            process.env.TMDB_API_KEY
+          }`
+        : "");
+    const request = await fetch(finalUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     return await request.json();
   }
 }

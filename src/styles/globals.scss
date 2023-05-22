@@ -43,6 +43,20 @@ h2 {
   font-family: serif;
 }
 
+input {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 0.25em;
+  transition: 0.15s;
+
+  &::placeholder {
+    font-style: italic;
+    color: #aaa;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

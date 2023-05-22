@@ -1,3 +1,4 @@
+import SearchBar from "components/SearchModal/SearchModal";
 import Link from "next/link";
 import styles from "./navbar.module.scss";
 
@@ -16,12 +17,3 @@ export const Navbar = () => {
     </nav>
   );
 };
-
-function SearchBar() {
-  return (
-    <div className={styles["search-bar"]}>
-      <input type="text" placeholder="Rechercher..." />
-      <button type="submit">Rechercher</button>
-    </div>
-  );
-}
