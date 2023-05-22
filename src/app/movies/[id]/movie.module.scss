@@ -1,0 +1,50 @@
+.movie-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.backdrop-image {
+  height: 100vh;
+  width: 100vw;
+}
+
+.header-hero {
+  height: 100%;
+  width: 100%;
+  padding: 4em;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  gap: 4em;
+  align-items: center;
+  justify-content: flex-end;
+
+  & .thumbnail img {
+    border-radius: 0.5em;
+  }
+
+  & .header {
+    font-size: 1.25em;
+    display: flex;
+    gap: 2.5em;
+    line-height: 1.25em;
+    flex-direction: column;
+  }
+}
+
+.header .title {
+  position: relative;
+  font-size: 2.25em;
+
+  // FIXEME: n'apparait pas (faire un petit trait sous le titre)
+  &:before {
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 20px;
+    background-color: #fff;
+    padding: 1em;
+  }
+}
