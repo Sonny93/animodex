@@ -2,13 +2,13 @@ import { AnimatePresence } from "framer-motion";
 import { ChangeEvent, useEffect, useState } from "react";
 
 import Modal from "components/Modal/Modal";
+import SearchResultList from "./SearchResultList";
 
 import { DEBOUNCE_TIME } from "constants/debounce";
 import useAutoFocus from "hooks/useAutoFocus";
 import useOpen from "hooks/useOpen";
 import { BaseApi } from "lib/api";
 
-import Link from "next/link";
 import styles from "./search-modal.module.scss";
 
 export default function SearchBar() {
@@ -72,28 +72,18 @@ export default function SearchBar() {
               onChange={handleInputChange}
               value={searchTerm}
               ref={autoFocus}
+              style={{ width: "100%" }}
             />
-            <ul
-              style={{
-                height: "500px",
-                display: "flex",
-                gap: "1em",
-                padding: "1em 2em",
-                flexDirection: "column",
-                overflow: "auto",
-              }}
-            >
-              {results.map((result) => (
-                <li key={result.id}>
-                  <Link
-                    href={`/movies/${result.id}`}
-                    onClick={handleModalClose}
-                  >
-                    {result.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {results.length > 0 ? (
+              <SearchResultList
+                handleModalClose={handleModalClose}
+                results={results}
+              />
+            ) : searchTerm.trim().length === 0 ? (
+              <i>Faites une recherche</i>
+            ) : (
+              <i>Aucun résultat</i>
+            )}
           </Modal>
         )}
       </AnimatePresence>
